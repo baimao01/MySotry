@@ -1,0 +1,181 @@
+[gd_scene load_steps=14 format=3 uid="uid://kn4y64xey7f8"]
+
+[ext_resource type="Script" path="res://src/gui/inventory/Inventory.cs" id="2_lcmla"]
+[ext_resource type="Script" path="res://src/gui/makeSystem/MakeSystem.cs" id="3_vybik"]
+[ext_resource type="Texture2D" uid="uid://dbucjoli7t1lh" path="res://assets/gui/test2.png" id="4_akfjv"]
+[ext_resource type="Texture2D" uid="uid://rjl4r80iuqty" path="res://assets/gui/window.png" id="4_xcde5"]
+[ext_resource type="Texture2D" uid="uid://cl1604cblfytq" path="res://assets/itemTexture/gun/pistol.png" id="5_k8s84"]
+[ext_resource type="PackedScene" uid="uid://ce74vwarl5ri5" path="res://src/gui/makeSystem/makeDescribe.tscn" id="6_ugxk6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3e7ty"]
+texture = ExtResource("4_xcde5")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w0adw"]
+texture = ExtResource("4_akfjv")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7sxxn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bvnm3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mmdn5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qqjlp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_arvq1"]
+
+[node name="InventoryTest" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_horizontal_guides_ = []
+metadata/_edit_vertical_guides_ = [139.0]
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 148.0
+offset_top = 77.0
+offset_right = 188.0
+offset_bottom = 117.0
+
+[node name="Inventory" type="Control" parent="."]
+custom_minimum_size = Vector2(86, 18)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -43.0
+offset_right = 21.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("2_lcmla")
+items = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+gridColumns = 5
+initItem = ["MyStory:TestItem1"]
+initItemNum = [1]
+
+[node name="GridContainer" type="GridContainer" parent="Inventory"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 1
+theme_override_constants/v_separation = 1
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.0
+offset_top = -44.0
+offset_right = 71.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_3e7ty")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -92.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+script = ExtResource("3_vybik")
+gridColumns = 4
+
+[node name="GridContainer" type="GridContainer" parent="Panel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Describe" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 2.0
+offset_right = 148.0
+offset_bottom = 76.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_w0adw")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Describe"]
+layout_mode = 1
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 17.0
+offset_bottom = 17.0
+texture = ExtResource("5_k8s84")
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="Panel/Describe"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 18.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Describe/ScrollContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="makeDescribe" parent="Panel/Describe/ScrollContainer2/VBoxContainer" instance=ExtResource("6_ugxk6")]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -17.0
+offset_top = -10.0
+offset_right = -2.0
+offset_bottom = -2.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = SubResource("StyleBoxFlat_7sxxn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bvnm3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mmdn5")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_qqjlp")
+theme_override_styles/focus = SubResource("StyleBoxFlat_arvq1")
+text = "制作
+"
+
+[editable path="Panel/Describe/ScrollContainer2/VBoxContainer/makeDescribe"]

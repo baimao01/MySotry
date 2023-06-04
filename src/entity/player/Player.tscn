@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://dcf81iwfhv6tp"]
+
+[ext_resource type="Script" path="res://src/entity/player/Player.cs" id="1_f3ato"]
+[ext_resource type="Texture2D" uid="uid://c37ixqnhpwdib" path="res://assets/player.png" id="1_nmc77"]
+[ext_resource type="PackedScene" uid="uid://bg1b8babaunkb" path="res://src/entity/base/health/Hurtbox.tscn" id="2_xjkc3"]
+[ext_resource type="Script" path="res://src/entity/base/state/StateMachine.cs" id="3_7iach"]
+[ext_resource type="Script" path="res://src/entity/player/states/PlayerMove.cs" id="4_h63k3"]
+[ext_resource type="Script" path="res://src/entity/base/state/State.cs" id="4_lfxtb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4bdci"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ojmhg"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_f3ato")
+moveSpeed = 20
+runSpeed = 50
+
+[node name="Hurtbox" parent="." instance=ExtResource("2_xjkc3")]
+collision_layer = 4
+collision_mask = 2
+maxHealth = 10
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+shape = SubResource("RectangleShape2D_4bdci")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ojmhg")
+
+[node name="sprite" type="Node2D" parent="."]
+
+[node name="body" type="Sprite2D" parent="sprite"]
+texture = ExtResource("1_nmc77")
+region_enabled = true
+region_rect = Rect2(0, 3, 9, 9)
+
+[node name="left_hand" type="Sprite2D" parent="sprite"]
+position = Vector2(0, -8)
+texture = ExtResource("1_nmc77")
+region_enabled = true
+region_rect = Rect2(10, 3, 4, 4)
+
+[node name="right_han" type="Sprite2D" parent="sprite"]
+position = Vector2(0, 8)
+texture = ExtResource("1_nmc77")
+region_enabled = true
+region_rect = Rect2(10, 8, 4, 4)
+
+[node name="stateMachine" type="Node" parent="."]
+script = ExtResource("3_7iach")
+
+[node name="move" type="Node" parent="stateMachine"]
+script = ExtResource("4_h63k3")
+
+[node name="attack" type="Node" parent="stateMachine"]
+script = ExtResource("4_lfxtb")
+
+[editable path="Hurtbox"]

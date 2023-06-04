@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwnbjtpntuewb"]
+
+[ext_resource type="Script" path="res://src/gui/makeSystem/MakeSystem.cs" id="1_yg71b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7tnyf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rmeig"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fyyuk"]
+
+[node name="VBoxContainer" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="TabBar" type="TabBar" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_7tnyf")
+theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_rmeig")
+theme_override_styles/tab_disabled = SubResource("StyleBoxFlat_fyyuk")
+tab_count = 3
+tab_0/title = "材料"
+tab_1/title = "工具"
+tab_2/title = "食物"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("1_yg71b")
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

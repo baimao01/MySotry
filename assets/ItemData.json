@@ -1,0 +1,22 @@
+{
+    "MyStory:TestItem1":{
+        "name": "MyStory:TestItem1",
+        "texture": "res://assets/itemTexture/TestItem1.png",
+        "maxNum": 2
+    },
+    "MyStory:TestItem2":{
+        "name": "MyStory:TestItem2",
+        "texture": "res://assets/itemTexture/TestItem1.png",
+        "maxNum": 64
+    },
+    "MyStory:TestGun1":{
+        "name": "MyStory:TestGun1",
+        "texture": "res://assets/itemTexture/TestItem1.png",
+        "isStacking": false,
+        "extraData" : {
+            "gunDamage" : 0,
+            "gunInterval" : 0,
+            "bulletSpeed" : 340
+        }
+    }
+}

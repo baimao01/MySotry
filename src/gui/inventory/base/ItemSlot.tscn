@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://bt0sgfp8o4wy3"]
+
+[ext_resource type="Texture2D" uid="uid://dbucjoli7t1lh" path="res://assets/gui/test2.png" id="1_bp5pr"]
+[ext_resource type="Script" path="res://src/gui/inventory/base/ItemSlot.cs" id="2_18b2j"]
+[ext_resource type="Texture2D" uid="uid://wn6dtbe0xjgb" path="res://assets/gui/test1.png" id="3_gc6e6"]
+
+[node name="ItemSlot" type="TextureRect"]
+texture = ExtResource("1_bp5pr")
+script = ExtResource("2_18b2j")
+focusTexture = ExtResource("3_gc6e6")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

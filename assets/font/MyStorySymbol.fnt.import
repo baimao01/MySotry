@@ -1,0 +1,16 @@
+[remap]
+
+importer="font_data_bmfont"
+type="FontFile"
+uid="uid://2uqhyrywa8re"
+path="res://.godot/imported/MyStorySymbol.fnt-34c1a14391705ebfd5f10df6875df8f4.fontdata"
+
+[deps]
+
+source_file="res://assets/font/MyStorySymbol.fnt"
+dest_files=["res://.godot/imported/MyStorySymbol.fnt-34c1a14391705ebfd5f10df6875df8f4.fontdata"]
+
+[params]
+
+fallbacks=[]
+compress=true

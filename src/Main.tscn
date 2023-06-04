@@ -1,0 +1,91 @@
+[gd_scene load_steps=10 format=3 uid="uid://i1h6u5v8iypw"]
+
+[ext_resource type="Texture2D" uid="uid://cunouwcx81pcf" path="res://assets/gui/buttonHover.png" id="1_eixoi"]
+[ext_resource type="Texture2D" uid="uid://bubephm6girru" path="res://assets/gui/buttonNormal.png" id="2_n5xm4"]
+[ext_resource type="Texture2D" uid="uid://wpp486iaw13v" path="res://assets/gui/buttonPressed.png" id="3_ly5v7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ynuxh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1edjd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ys26x"]
+texture = ExtResource("1_eixoi")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ec7yl"]
+texture = ExtResource("2_n5xm4")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tskyl"]
+texture = ExtResource("3_ly5v7")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+
+[sub_resource type="Theme" id="Theme_wtlwp"]
+Button/font_sizes/font_size = 5
+Button/styles/disabled = SubResource("StyleBoxEmpty_ynuxh")
+Button/styles/focus = SubResource("StyleBoxEmpty_1edjd")
+Button/styles/hover = SubResource("StyleBoxTexture_ys26x")
+Button/styles/normal = SubResource("StyleBoxTexture_ec7yl")
+Button/styles/pressed = SubResource("StyleBoxTexture_tskyl")
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_wtlwp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -90.0
+offset_right = 17.0
+offset_bottom = -3.0
+grow_vertical = 0
+alignment = 2
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+text = "开始"
+
+[node name="Options" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+text = "设置"
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+text = "退出"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -17.0
+offset_top = -90.0
+offset_bottom = -3.0
+grow_horizontal = 0
+grow_vertical = 0
+alignment = 2
+
+[node name="Button" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+text = "Mod"

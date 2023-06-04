@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://da6mllyaq7q1j"]
+
+[ext_resource type="PackedScene" uid="uid://dcf81iwfhv6tp" path="res://src/entity/player/Player.tscn" id="1_3r4ua"]
+[ext_resource type="Script" path="res://src/map/MapGenerator.cs" id="1_26bqv"]
+
+[node name="mainWorld" type="Node2D"]
+script = ExtResource("1_26bqv")
+mapRandoms = Array[int]([])
+cityCount = 10
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
+
+[node name="Player" parent="." instance=ExtResource("1_3r4ua")]
+position = Vector2(128, 75)
